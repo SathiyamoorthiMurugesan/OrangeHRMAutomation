@@ -1,5 +1,5 @@
 package com.Orange.pages;
 
-public class AdminPage {
+public class HRM_HomePage {
 
 }

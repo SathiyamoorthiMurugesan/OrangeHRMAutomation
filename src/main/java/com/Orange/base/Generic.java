@@ -9,19 +9,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.BeforeMethod;
 
 public class Generic {
 
-	private WebDriver driver;
+	public static WebDriver driver;
 
-	public WebDriver getDriver() {
+	public static WebDriver getDriver() {
 		return driver;
 	}
 
-	public void setDriver(WebDriver driver) {
-		this.driver = driver;
+	public static void setDriver(WebDriver driver) {
+		Generic.driver = driver;
 	}
 
+	@BeforeMethod
 	public WebDriver launchApplication1(String applicationURL, long implicitWaitTime) {
 
 		System.setProperty("webdriver.chrome.driver", ".\\src\\main\\resources\\drivers\\chromedriver_128.exe");

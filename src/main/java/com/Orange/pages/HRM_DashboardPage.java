@@ -3,11 +3,11 @@ package com.Orange.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class DashboardPage {
+public class HRM_DashboardPage {
 	
 	WebDriver driver;
 
-	DashboardPage dashBoardPage =  
+	HRM_DashboardPage dashBoardPage =  
 	           PageFactory.initElements(driver, 
-	        		   DashboardPage.class); 
+	        		   HRM_DashboardPage.class); 
 }
