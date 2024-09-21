@@ -8,7 +8,7 @@ public class ReadAndWriteProperty {
 
 	static Properties prop = new Properties();
 	static String propFile = "";
-	static String propFileToStoreDate = "";
+	static String propFileToStoreData = "";
 
 	public String readAProperty(String propertyName) throws Exception {
 		prop.load(new FileInputStream(propFile));
@@ -22,7 +22,7 @@ public class ReadAndWriteProperty {
 	
 	public void writeOnProperty(String propertyName, String value) throws Exception {
 		prop.setProperty(propertyName, value);
-		prop.store(new FileOutputStream(propFileToStoreDate), "");
+		prop.store(new FileOutputStream(propFileToStoreData), "");
 	}
 
 }
