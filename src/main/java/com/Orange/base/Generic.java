@@ -40,6 +40,7 @@ public class Generic {
 	public static ExtentTest extentLogger;
 	public static ExtentSparkReporter sparkReporter;
 	static String reportPath;
+	
 
 	public static WebDriver getDriver() {
 		return driver;
@@ -81,7 +82,7 @@ public class Generic {
 		sparkReporter = new ExtentSparkReporter(reportPath + "extent.html");
 		extentReport = new ExtentReports();
 		extentReport.attachReporter(sparkReporter);
-
+		extentLogger= extentReport.createTest("Testcase_1_Loginpage");
 	}
 
 	@AfterSuite
@@ -89,7 +90,7 @@ public class Generic {
 		extentReport.flush();
 	}
 
-	@AfterMethod
+//	@AfterMethod
 	public void quitBrowser() {
 		getDriver().quit();
 	}

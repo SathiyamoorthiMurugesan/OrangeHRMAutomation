@@ -8,6 +8,9 @@ import org.testng.Assert;
 
 import com.Orange.base.Generic;
 import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class HRM_LoginPage {
 
@@ -17,7 +20,11 @@ public class HRM_LoginPage {
 	public HRM_LoginPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		
+		
 	}
+	
+	
 
 	@FindBy(name = "username")
 	WebElement textBox_UserName;
@@ -49,12 +56,17 @@ public class HRM_LoginPage {
 	public void loginOrangeHRMPage(String userName, String password) throws Exception {
 		try {
 //		textBox_UserName.sendKeys(userName);
+			
 			generic.sendTextToAnElement(textBox_UserName, userName);
 			generic.sendTextToAnElement(textBox_Password, password);
+			Thread.sleep(1000);
+			Generic.extentLogger.pass("Website Lauched with Login Credentials",
+					MediaEntityBuilder.createScreenCaptureFromPath(Generic.captureScreenshot()).build());
 			generic.clickAnElement(button_Login);
-
+			Thread.sleep(5000);
 			Generic.extentLogger.pass("Successfully logged in Orange HRM application",
 					MediaEntityBuilder.createScreenCaptureFromPath(Generic.captureScreenshot()).build());
+	
 		} catch (Exception e) {
 			Generic.extentLogger.pass("Failed to login Orange HRM application." + e.getMessage(),
 					MediaEntityBuilder.createScreenCaptureFromPath(Generic.captureScreenshot()).build());
