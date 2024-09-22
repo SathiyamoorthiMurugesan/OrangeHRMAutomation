@@ -4,8 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import com.Orange.base.Generic;
+import com.aventstack.extentreports.MediaEntityBuilder;
 
 public class HRM_HomePage {
 
@@ -17,8 +20,8 @@ public class HRM_HomePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-//	@FindBy(xpath = "")
-//	WebElement a;
+	@FindBy(xpath = "//a[@class='oxd-main-menu-item']//span[text()='Admin']")
+	WebElement adminPageLink;
 //	
 //	@FindBy(xpath = "")
 //	WebElement a;
@@ -32,7 +35,17 @@ public class HRM_HomePage {
 //	@FindBy(xpath = "")
 //	WebElement a;
 //	
-//	@FindBy(xpath = "")
+//	@FindBy(xpath = "")s
 //	WebElement a;
+	@Test
+	public void validatelink() throws Exception
+	{
+		System.out.println("method Called");
+		Generic.extentLogger= Generic.extentReport.createTest("Home Page");
+		Assert.assertTrue(adminPageLink.isDisplayed());
+		Generic.extentLogger.pass("HomePage",
+				MediaEntityBuilder.createScreenCaptureFromPath(Generic.captureScreenshot()).build());
+		
+	}
 
 }
