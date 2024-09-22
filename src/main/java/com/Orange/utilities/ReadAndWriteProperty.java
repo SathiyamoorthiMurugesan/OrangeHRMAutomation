@@ -7,8 +7,8 @@ import java.util.Properties;
 public class ReadAndWriteProperty {
 
 	static Properties prop = new Properties();
-	static String propFile = "";
-	static String propFileToStoreData = "";
+	static String propFile = ".\\src\\main\\resources\\config.properties";
+	static String propFileToStoreData = ".\\src\\main\\resources\\data.properties";
 
 	public String readAProperty(String propertyName) throws Exception {
 		prop.load(new FileInputStream(propFile));

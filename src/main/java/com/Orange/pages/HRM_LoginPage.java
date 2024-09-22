@@ -27,22 +27,39 @@ public class HRM_LoginPage {
 
 	@FindBy(xpath = "//button[text() = ' Login ']")
 	WebElement button_Login;
+	
+//	@FindBy(xpath = "")
+//	WebElement a;
+//	
+//	@FindBy(xpath = "")
+//	WebElement a;
+//	
+//	@FindBy(xpath = "")
+//	WebElement a;
+//	
+//	@FindBy(xpath = "")
+//	WebElement a;
+//	
+//	@FindBy(xpath = "")
+//	WebElement a;
+//	
+//	@FindBy(xpath = "")
+//	WebElement a;
 
 	public void loginOrangeHRMPage(String userName, String password) throws Exception {
 		try {
 //		textBox_UserName.sendKeys(userName);
-		generic.sendTextToAnElement(textBox_UserName, userName);
-		generic.sendTextToAnElement(textBox_Password, password);
-		generic.clickAnElement(button_Login);
-		
-		Generic.extentLogger.pass("Successfully logged in Orange HRM application",
-				MediaEntityBuilder.createScreenCaptureFromPath(Generic.captureScreenshot()).build());
-		}
-		catch(Exception e) {
-			Generic.extentLogger.pass("Failed to login Orange HRM application."+e.getMessage(),
+			generic.sendTextToAnElement(textBox_UserName, userName);
+			generic.sendTextToAnElement(textBox_Password, password);
+			generic.clickAnElement(button_Login);
+
+			Generic.extentLogger.pass("Successfully logged in Orange HRM application",
+					MediaEntityBuilder.createScreenCaptureFromPath(Generic.captureScreenshot()).build());
+		} catch (Exception e) {
+			Generic.extentLogger.pass("Failed to login Orange HRM application." + e.getMessage(),
 					MediaEntityBuilder.createScreenCaptureFromPath(Generic.captureScreenshot()).build());
 			Assert.fail("Failed to login Orange HRM application.");
 		}
-		
-	}	
+
+	}
 }

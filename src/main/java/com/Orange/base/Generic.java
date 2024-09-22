@@ -63,7 +63,7 @@ public class Generic {
 		getDriver().manage().window().maximize();
 
 		getDriver().get(applicationUrl);
-		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
 		return getDriver();
 	}
@@ -71,7 +71,7 @@ public class Generic {
 	@BeforeSuite
 	public void extentReport() {
 		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat();
+		SimpleDateFormat sdf = new SimpleDateFormat("ddMMYYYY_HHmmss");
 
 		String sDate = sdf.format(date);
 
