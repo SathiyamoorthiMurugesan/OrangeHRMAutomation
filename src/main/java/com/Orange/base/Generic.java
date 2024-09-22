@@ -20,6 +20,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
@@ -40,7 +41,7 @@ public class Generic {
 	public static ExtentTest extentLogger;
 	public static ExtentSparkReporter sparkReporter;
 	static String reportPath;
-	
+	static String extenLoggername;
 
 	public static WebDriver getDriver() {
 		return driver;
@@ -82,7 +83,7 @@ public class Generic {
 		sparkReporter = new ExtentSparkReporter(reportPath + "extent.html");
 		extentReport = new ExtentReports();
 		extentReport.attachReporter(sparkReporter);
-		extentLogger= extentReport.createTest("Testcase_1_Loginpage");
+
 	}
 
 	@AfterSuite
@@ -250,6 +251,8 @@ public class Generic {
 	
 //	Alert methods 
 	
+	
+	
 	public void acceptAlert() {
 		Alert alert = getDriver().switchTo().alert();
 		alert.accept();
@@ -269,5 +272,8 @@ public class Generic {
 		Alert alert = getDriver().switchTo().alert();
 		alert.sendKeys(text);
 	}
+	
+	//Validate Image
+	
 
 }

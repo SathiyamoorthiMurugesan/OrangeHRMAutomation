@@ -5,12 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import com.Orange.base.Generic;
 import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class HRM_LoginPage {
 
@@ -23,7 +22,6 @@ public class HRM_LoginPage {
 		
 		
 	}
-	
 	
 
 	@FindBy(name = "username")
@@ -56,7 +54,7 @@ public class HRM_LoginPage {
 	public void loginOrangeHRMPage(String userName, String password) throws Exception {
 		try {
 //		textBox_UserName.sendKeys(userName);
-			
+			Generic.extentLogger= Generic.extentReport.createTest("loginPage");
 			generic.sendTextToAnElement(textBox_UserName, userName);
 			generic.sendTextToAnElement(textBox_Password, password);
 			Thread.sleep(1000);

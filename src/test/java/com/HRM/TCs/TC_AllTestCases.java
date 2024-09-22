@@ -12,8 +12,12 @@ public class TC_AllTestCases extends Generic {
 	public void validateAPage() throws Exception {
 		HRM_LoginPage loginPage = new HRM_LoginPage(driver);
 		loginPage.loginOrangeHRMPage("Admin", "admin123");
-//		HRM_CommonPage commonPage = new HRM_CommonPage(driver);
-//		commonPage.goToTheGivenPage("Time");
+		HRM_CommonPage commonPage = new HRM_CommonPage(driver);
+		commonPage.getUserName();
+		commonPage.validateClientImage1();
+		commonPage.minimizeTheMenuSection();
+		commonPage.searchAPage("Time");
+		commonPage.goToTheGivenPage("Time");
 	}
 
 }
